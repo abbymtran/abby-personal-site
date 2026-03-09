@@ -401,43 +401,74 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
+          {/* News list — editorial rule-separated layout */}
+          <div className="border-t border-site-gray-light">
             {newsItems.map((item, i) => (
               <a
                 key={i}
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="news-card group block border border-site-gray-light p-7 lg:p-8 transition-all duration-300 hover:border-site-black hover:bg-site-black hover:text-site-white"
+                className="news-row group block border-b border-site-gray-light py-5 lg:py-6 transition-colors duration-300 hover:bg-site-black/[0.02]"
                 data-animate
               >
-                <p className="font-body text-xs tracking-[0.1em] uppercase text-site-gray-mid group-hover:text-site-gray-mid mb-4">
-                  {item.date} &middot; {item.source}
-                </p>
-                <h3 className="font-display text-xl lg:text-2xl leading-[1.2] mb-3 text-site-black group-hover:text-site-white transition-colors">
-                  {item.title}
-                </h3>
-                <p className="font-body text-sm text-site-gray-dark group-hover:text-site-gray-mid leading-relaxed mb-5 transition-colors">
-                  {item.descriptor}
-                </p>
-                <span className="inline-flex items-center gap-1 font-body text-xs tracking-[0.1em] uppercase text-site-gray-mid group-hover:text-site-white transition-colors">
-                  Read
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M3 8H13M13 8L9 4M13 8L9 12"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
+                {/* Desktop: single-row layout with date | title | source */}
+                <div className="hidden md:flex items-baseline justify-between gap-6">
+                  {/* Date — fixed width left column */}
+                  <span className="font-body text-xs tracking-[0.08em] uppercase text-site-gray-mid w-[130px] shrink-0">
+                    {item.date}
+                  </span>
+
+                  {/* Title — fills center */}
+                  <h3 className="font-display text-lg lg:text-xl leading-[1.3] text-site-black flex-1 group-hover:text-site-gray-dark transition-colors duration-300">
+                    {item.title}
+                  </h3>
+
+                  {/* Source + arrow — right aligned */}
+                  <span className="font-body text-xs tracking-[0.08em] uppercase text-site-gray-mid shrink-0 flex items-center gap-2">
+                    {item.source}
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden="true"
+                      className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                    >
+                      <path
+                        d="M3 8H13M13 8L9 4M13 8L9 12"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+
+                {/* Desktop: descriptor reveal on hover */}
+                <div className="hidden md:block">
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
+                    <div className="overflow-hidden">
+                      <p className="font-body text-sm text-site-gray-mid leading-[1.6] pl-[130px] pr-[130px] pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {item.descriptor}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile: stacked layout */}
+                <div className="md:hidden">
+                  <p className="font-body text-xs tracking-[0.08em] uppercase text-site-gray-mid mb-2">
+                    {item.date} &middot; {item.source}
+                  </p>
+                  <h3 className="font-display text-lg leading-[1.3] text-site-black mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="font-body text-sm text-site-gray-mid leading-[1.6]">
+                    {item.descriptor}
+                  </p>
+                </div>
               </a>
             ))}
           </div>
