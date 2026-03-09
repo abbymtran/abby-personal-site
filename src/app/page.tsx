@@ -67,7 +67,7 @@ const supportingWork = [
 
 const newsItems = [
   {
-    date: "January 2025",
+    date: "January 2026",
     source: "Snap Values",
     title: "Five Years of Snap\u2019s Law Enforcement Summit",
     descriptor:
@@ -222,7 +222,7 @@ export default function Home() {
               sizes="(max-width: 1024px) 100vw, 45vw"
             />
             {/* Gradient overlay so text reads clearly over image on desktop */}
-            <div className="hidden lg:block absolute inset-0" style={{ background: "linear-gradient(to right, var(--color-site-white) 0%, var(--color-site-white) 15%, rgba(245,245,243,0.6) 40%, transparent 65%)" }} />
+            <div className="hidden lg:block absolute inset-0" style={{ background: "linear-gradient(to right, var(--color-site-white) 0%, var(--color-site-white) 5%, rgba(245,245,243,0.6) 25%, transparent 50%)" }} />
           </div>
         </div>
 
@@ -450,7 +450,7 @@ export default function Home() {
                 <div className="hidden md:block">
                   <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300">
                     <div className="overflow-hidden">
-                      <p className="font-body text-sm text-site-gray-mid leading-[1.6] pl-[130px] pr-[130px] pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="font-body text-sm text-site-gray-mid leading-[1.6] pl-[154px] pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         {item.descriptor}
                       </p>
                     </div>
