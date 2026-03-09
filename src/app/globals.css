@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-site-black: #0A0A0A;
+  --color-site-white: #F5F5F3;
+  --color-site-gray-light: #E8E8E6;
+  --color-site-gray-mid: #999999;
+  --color-site-gray-dark: #333333;
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-dm-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base */
+body {
+  background-color: #F5F5F3;
+  color: #0A0A0A;
+  font-family: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #0A0A0A;
+  color: #F5F5F3;
+}
+
+/* Scroll offset for sticky nav */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Headshot filter */
+.headshot-filter {
+  filter: grayscale(100%) contrast(1.1);
+}
+
+/* ========================
+   Hero staggered animations
+   ======================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.hero-animate {
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ========================
+   Scroll-triggered animations
+   ======================== */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+[data-animate-delay="1"] { transition-delay: 0.1s; }
+[data-animate-delay="2"] { transition-delay: 0.2s; }
+[data-animate-delay="3"] { transition-delay: 0.3s; }
+[data-animate-delay="4"] { transition-delay: 0.4s; }
+
+/* ========================
+   Section divider
+   ======================== */
+.section-divider {
+  border-top: 1px solid #E8E8E6;
+}
+
+/* ========================
+   Flagship card hover accent
+   ======================== */
+.flagship-card {
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s ease, border-left-color 0.3s ease;
+}
+
+.flagship-card:hover {
+  border-left-color: #0A0A0A;
 }
