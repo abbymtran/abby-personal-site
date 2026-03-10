@@ -333,15 +333,28 @@ export default function Home() {
                     </p>
                   </div>
 
-                  {/* Product screenshot — hidden on mobile */}
-                  <div className="hidden lg:block lg:w-[280px] xl:w-[320px] shrink-0 relative overflow-hidden bg-site-gray-light">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover object-top headshot-filter group-hover:scale-105 transition-transform duration-500"
-                      sizes="320px"
-                    />
+                  {/* Product screenshot in phone mockup — hidden on mobile */}
+                  <div className="hidden lg:flex lg:w-[320px] xl:w-[380px] shrink-0 items-center justify-center bg-site-gray-light p-8 xl:p-10">
+                    <div
+                      className="phone-mockup relative w-[180px] xl:w-[200px] group-hover:translate-y-[-4px] transition-transform duration-500"
+                      style={{ transform: i % 2 === 0 ? "rotate(2deg)" : "rotate(-2deg)" }}
+                    >
+                      {/* Phone bezel */}
+                      <div className="relative rounded-[24px] border-[6px] border-site-black/80 overflow-hidden shadow-xl bg-white">
+                        {/* Notch */}
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60px] h-[14px] bg-site-black/80 rounded-b-xl z-10" />
+                        {/* Screen */}
+                        <div className="relative aspect-[9/17] overflow-hidden">
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            className="object-cover object-top headshot-filter"
+                            sizes="200px"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
