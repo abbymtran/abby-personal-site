@@ -21,6 +21,7 @@ const flagshipWork = [
   {
     tags: ["AI Product", "Safety Infrastructure", "0\u21921"],
     title: "LLM Integration & AI Safety",
+    image: "/images/MyAI.PNG",
     body: "When Snap brought a large language model into a social product used predominantly by teens, the question wasn\u2019t just how to ship it \u2014 it was how to ship it responsibly. That meant building the safety architecture in parallel with the product itself: defining what the model should and shouldn\u2019t do, establishing guardrail frameworks, and designing for failure modes that had no industry precedent at this scale or demographic. The hardest decisions weren\u2019t technical. They were about where to draw lines in a product that lives inside a messaging app \u2014 where context collapses, where users are young, and where trust is built or broken in a single interaction.",
     pullquote:
       "Every consumer AI product is navigating this same tension. The companies that get it right will be the ones that treat safety architecture as a product discipline, not an afterthought.",
@@ -29,6 +30,7 @@ const flagshipWork = [
   {
     tags: ["Teen Safety", "Product Strategy", "Multi-year Platform"],
     title: "Parental Controls & Family Center",
+    image: "/images/FamilyCenter.PNG",
     body: "Family Center is Snap\u2019s answer to a genuinely hard product problem: how do you give parents meaningful oversight of their teen\u2019s experience without breaking the trust that makes the app worth using in the first place? The wrong version of this product is surveillance. The right version is a tool that opens conversations. Building it required making deliberate decisions about visibility \u2014 what parents can see (friend lists, screen time, location), what they can control (content settings, AI access), and what remains private (message content). Every feature was a negotiation between protection and autonomy.",
     pullquote:
       "Parental controls are no longer a nice-to-have. They\u2019re a regulatory expectation and a competitive differentiator. The architecture built here is the template the industry is converging toward.",
@@ -37,6 +39,7 @@ const flagshipWork = [
   {
     tags: ["Compliance", "Policy", "Platform Architecture"],
     title: "Age Gating & Regulatory Compliance",
+    image: "/images/AgeVerification.PNG",
     body: "Australia\u2019s under-16 social media ban was the first law of its kind \u2014 and required building age verification infrastructure that didn\u2019t exist anywhere in the industry at the necessary scale or accuracy. The challenge wasn\u2019t just technical: it was designing a compliant experience that didn\u2019t create worse outcomes for the teens it was meant to protect. That meant working across product, policy, legal, and third-party partners to build a system that could hold up under regulatory scrutiny while remaining operable at platform scale \u2014 with all the imprecision of current age estimation technology factored in.",
     pullquote:
       "Age verification mandates are coming globally. The companies with working infrastructure and regulatory relationships are years ahead of those starting from scratch.",
@@ -330,11 +333,15 @@ export default function Home() {
                     </p>
                   </div>
 
-                  {/* Accent block — hidden on mobile */}
-                  <div className="hidden lg:flex lg:w-[280px] xl:w-[320px] shrink-0 bg-site-black items-center justify-center p-10">
-                    <span className="font-display text-5xl xl:text-6xl text-site-white/10 leading-none text-center select-none">
-                      {item.tags[0]}
-                    </span>
+                  {/* Product screenshot — hidden on mobile */}
+                  <div className="hidden lg:block lg:w-[280px] xl:w-[320px] shrink-0 relative overflow-hidden bg-site-gray-light">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover object-top headshot-filter group-hover:scale-105 transition-transform duration-500"
+                      sizes="320px"
+                    />
                   </div>
                 </div>
               </div>
