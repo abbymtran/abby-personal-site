@@ -218,7 +218,7 @@ export default function Home() {
           <div className="relative w-full h-[50vh] lg:h-full max-w-md mx-auto lg:max-w-none overflow-hidden">
             <Image
               src="/headshot.jpeg"
-              alt="Abby Tran — Product Executive, AI Safety"
+              alt="Abby Tran — AI Safety, Trust & Safety, and Responsible AI Product Leader"
               fill
               className="object-cover object-top headshot-filter"
               priority
@@ -239,7 +239,7 @@ export default function Home() {
                 fontSize: "clamp(2.75rem, 6vw, 6.25rem)",
               }}
             >
-              Building the products that make AI safe.
+              Making AI safer, at scale.
             </h1>
             <p
               className="font-body text-base lg:text-[1.075rem] text-site-gray-dark leading-[1.75] mt-8 lg:mt-10 max-w-xl hero-animate"
