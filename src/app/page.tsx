@@ -334,7 +334,7 @@ export default function Home() {
                   </div>
 
                   {/* Product screenshot in phone mockup — hidden on mobile */}
-                  <div className="hidden lg:flex lg:w-[320px] xl:w-[380px] shrink-0 items-center justify-center bg-site-gray-light p-8 xl:p-10">
+                  <div className="hidden lg:flex lg:w-[320px] xl:w-[380px] shrink-0 items-center justify-center p-8 xl:p-10">
                     <div
                       className="phone-mockup relative w-[180px] xl:w-[200px] group-hover:translate-y-[-4px] transition-transform duration-500"
                       style={{ transform: i % 2 === 0 ? "rotate(2deg)" : "rotate(-2deg)" }}
